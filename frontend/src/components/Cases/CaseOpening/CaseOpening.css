@@ -1,0 +1,232 @@
+.case-opening-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(8, 17, 25, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.case-opening-container {
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.case-opening-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 24px 0;
+  margin-bottom: 24px;
+}
+
+.case-opening-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.case-opening-close {
+  min-width: auto;
+  padding: 8px;
+}
+
+.case-opening-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px 24px;
+  position: relative;
+}
+
+.items-track-container {
+  position: relative;
+  background: var(--bg-glass-dark);
+  border-radius: var(--border-radius-lg);
+  padding: 60px 20px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.selection-arrow {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent-blue);
+  z-index: 10;
+  filter: drop-shadow(0 0 10px rgba(0, 102, 255, 0.5));
+}
+
+.items-track {
+  display: flex;
+  gap: 15px;
+  width: max-content;
+  will-change: transform;
+}
+
+.case-item-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  min-width: 120px;
+  text-align: center;
+  position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.item-preview-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.item-preview-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-rarity-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.case-opening-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.open-case-btn {
+  min-width: 200px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.spinning-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(8, 17, 25, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.spinning-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .case-opening-container {
+    max-height: 95vh;
+  }
+  
+  .case-opening-header {
+    padding: 20px 20px 0;
+  }
+  
+  .case-opening-title {
+    font-size: 1.5rem;
+  }
+  
+  .case-opening-content {
+    padding: 0 20px 20px;
+  }
+  
+  .items-track-container {
+    padding: 50px 15px;
+    margin-bottom: 20px;
+  }
+  
+  .case-item-preview {
+    min-width: 100px;
+    padding: 12px;
+  }
+  
+  .item-preview-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .item-preview-name {
+    font-size: 0.75rem;
+    max-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-opening-overlay {
+    padding: 10px;
+  }
+  
+  .items-track-container {
+    padding: 40px 10px;
+  }
+  
+  .items-track {
+    gap: 10px;
+  }
+  
+  .case-item-preview {
+    min-width: 80px;
+    padding: 10px;
+  }
+  
+  .item-preview-image {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .item-preview-name {
+    font-size: 0.7rem;
+    max-width: 70px;
+  }
+  
+  .open-case-btn {
+    min-width: 160px;
+    font-size: 1rem;
+  }
+}

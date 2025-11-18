@@ -1,0 +1,137 @@
+.navigation {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-lg);
+  padding: 8px;
+  z-index: 1000;
+  width: auto;
+  max-width: 400px;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  padding: 12px 16px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-width: 70px;
+}
+
+.nav-item:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-item-active {
+  color: var(--accent-blue);
+  background: rgba(0, 102, 255, 0.1);
+}
+
+.nav-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.nav-icon {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.nav-active-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.nav-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.nav-item-active .nav-label {
+  color: var(--accent-blue);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .navigation {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    max-width: none;
+  }
+  
+  .nav-content {
+    justify-content: space-around;
+  }
+  
+  .nav-item {
+    padding: 10px 12px;
+    min-width: 60px;
+  }
+  
+  .nav-label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation {
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    padding: 6px;
+  }
+  
+  .nav-item {
+    padding: 8px 10px;
+    min-width: 55px;
+  }
+  
+  .nav-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .nav-label {
+    font-size: 0.65rem;
+  }
+  
+  .nav-active-indicator {
+    width: 35px;
+    height: 35px;
+  }
+}

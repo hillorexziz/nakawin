@@ -1,0 +1,184 @@
+.inventory-item {
+  padding: 20px;
+  border-radius: var(--border-radius-lg);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.inventory-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.item-source {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.actions-toggle-btn {
+  min-width: auto;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+}
+
+.inventory-item-content {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.item-image-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+  position: relative;
+  z-index: 2;
+}
+
+.item-rarity-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--border-radius);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.inventory-item:hover .item-rarity-glow {
+  opacity: 1;
+}
+
+.item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 6px 0;
+  word-wrap: break-word;
+}
+
+.item-rarity {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.item-prices {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.item-price,
+.item-sell-price {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.item-price {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.item-sell-price {
+  color: var(--warning);
+  font-weight: 600;
+}
+
+.item-date {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.inventory-item-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.action-btn {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .inventory-item {
+    padding: 16px;
+  }
+  
+  .inventory-item-content {
+    gap: 12px;
+  }
+  
+  .item-image-container {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .item-name {
+    font-size: 1rem;
+  }
+  
+  .item-rarity {
+    font-size: 0.8rem;
+  }
+  
+  .item-prices {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .inventory-item {
+    padding: 14px;
+  }
+  
+  .inventory-item-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .item-image-container {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+  }
+  
+  .item-info {
+    width: 100%;
+  }
+  
+  .inventory-item-actions {
+    flex-direction: column;
+  }
+}

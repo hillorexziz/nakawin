@@ -1,0 +1,59 @@
+.case-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cases-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+}
+
+.cases-empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.cases-empty h3 {
+  font-size: 1.5rem;
+  margin: 0 0 12px 0;
+  color: var(--text-primary);
+}
+
+.cases-empty p {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .case-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .cases-empty {
+    padding: 40px 20px;
+  }
+  
+  .cases-empty-icon {
+    font-size: 3rem;
+  }
+  
+  .cases-empty h3 {
+    font-size: 1.3rem;
+  }
+}

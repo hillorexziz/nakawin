@@ -1,0 +1,177 @@
+/* Эффект жидкого стекла */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-glass);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-glass);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.glass-dark {
+  background: var(--bg-glass-dark);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--border-radius);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.36),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-ultra {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-ultra::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.glass-ultra:hover::before {
+  left: 100%;
+}
+
+/* Эффект линзы (liquid glass) */
+.lens-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.lens-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.lens-effect:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Анимированный градиентный бордер */
+.gradient-border {
+  position: relative;
+  background: var(--bg-glass);
+  border-radius: var(--border-radius);
+  padding: 2px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient-primary);
+  border-radius: calc(var(--border-radius) + 2px);
+  z-index: -1;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(45deg);
+  }
+}
+
+/* Эффект неонового свечения */
+.neon-glow {
+  box-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px currentColor;
+  animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  from {
+    box-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor;
+  }
+  to {
+    box-shadow: 
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor,
+      0 0 40px currentColor;
+  }
+}
+
+/* Эффект параллакса для глубины */
+.parallax-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.parallax-layer {
+  transition: transform 0.1s ease;
+}
+
+/* Эффект морфинга для плавных переходов */
+.morph-element {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.morph-element:hover {
+  transform: translateY(-5px) scale(1.02);
+}
